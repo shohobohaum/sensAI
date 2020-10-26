@@ -11,9 +11,10 @@ from .util.cache import PersistentKeyValueCache
 _log = logging.getLogger(__name__)
 
 
-class ColumnGenerator:
+class ColumnGenerator(ABC):
     """
-    Generates a single column (pd.Series) from an input data frame, which is to have the same index as the input
+    Base class for column generators that generate a single column (pd.Series) from an input data frame, which is to have the same index as
+    the input.
     """
     def __init__(self, generatedColumnName: str):
         """
